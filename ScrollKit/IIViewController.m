@@ -31,10 +31,10 @@
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:skView.frame];
     scrollView.delegate = self;
-    scrollView.contentSize = CGSizeMake(skView.frame.size.width, skView.frame.size.height * 2);
-    scrollView.backgroundColor = [UIColor redColor];
-    scrollView.alpha = 0.5;
+    scrollView.contentSize = CGSizeMake(skView.frame.size.width, skView.frame.size.height * 1.5);
+    scrollView.hidden = YES;
     [skView addSubview:scrollView];
+    [skView addGestureRecognizer:scrollView.panGestureRecognizer];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
