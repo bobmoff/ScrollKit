@@ -9,7 +9,9 @@
 #import "IIViewController.h"
 #import "IIMyScene.h"
 
-@implementation IIViewController
+@implementation IIViewController {
+    IIMyScene *_scene;
+}
 
 - (void)viewDidLoad
 {
@@ -21,31 +23,25 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [IIMyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    _scene = [IIMyScene sceneWithSize:skView.bounds.size];
+    _scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
-    [skView presentScene:scene];
+    [skView presentScene:_scene];
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:skView.frame];
+    scrollView.delegate = self;
+    scrollView.contentSize = CGSizeMake(skView.frame.size.width, skView.frame.size.height * 2);
+    scrollView.backgroundColor = [UIColor redColor];
+    scrollView.alpha = 0.5;
+    [skView addSubview:scrollView];
 }
 
-- (BOOL)shouldAutorotate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+    CGPoint position = _scene.spriteToScroll.position;
+    position.y = scrollView.contentOffset.y;
+    _scene.spriteToScroll.position = position;
 }
 
 @end

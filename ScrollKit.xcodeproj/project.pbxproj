@@ -19,22 +19,7 @@
 		69255BD7183D5A7D00637E04 /* IIMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BD6183D5A7D00637E04 /* IIMyScene.m */; };
 		69255BD9183D5A7D00637E04 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 69255BD8183D5A7D00637E04 /* Spaceship.png */; };
 		69255BDB183D5A7D00637E04 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69255BDA183D5A7D00637E04 /* Images.xcassets */; };
-		69255BE2183D5A7D00637E04 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69255BE1183D5A7D00637E04 /* XCTest.framework */; };
-		69255BE3183D5A7D00637E04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69255BBB183D5A7D00637E04 /* Foundation.framework */; };
-		69255BE4183D5A7D00637E04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69255BBF183D5A7D00637E04 /* UIKit.framework */; };
-		69255BEC183D5A7D00637E04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69255BEA183D5A7D00637E04 /* InfoPlist.strings */; };
-		69255BEE183D5A7D00637E04 /* ScrollKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BED183D5A7D00637E04 /* ScrollKitTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		69255BE5183D5A7D00637E04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69255BB0183D5A7D00637E04 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 69255BB7183D5A7D00637E04;
-			remoteInfo = ScrollKit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		69255BB8183D5A7D00637E04 /* ScrollKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,11 +40,7 @@
 		69255BD6183D5A7D00637E04 /* IIMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IIMyScene.m; sourceTree = "<group>"; };
 		69255BD8183D5A7D00637E04 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		69255BDA183D5A7D00637E04 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		69255BE0183D5A7D00637E04 /* ScrollKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69255BE1183D5A7D00637E04 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		69255BE9183D5A7D00637E04 /* ScrollKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScrollKitTests-Info.plist"; sourceTree = "<group>"; };
-		69255BEB183D5A7D00637E04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		69255BED183D5A7D00637E04 /* ScrollKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollKitTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,16 +55,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69255BDD183D5A7D00637E04 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				69255BE2183D5A7D00637E04 /* XCTest.framework in Frameworks */,
-				69255BE4183D5A7D00637E04 /* UIKit.framework in Frameworks */,
-				69255BE3183D5A7D00637E04 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				69255BC3183D5A7D00637E04 /* ScrollKit */,
-				69255BE7183D5A7D00637E04 /* ScrollKitTests */,
 				69255BBA183D5A7D00637E04 /* Frameworks */,
 				69255BB9183D5A7D00637E04 /* Products */,
 			);
@@ -101,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				69255BB8183D5A7D00637E04 /* ScrollKit.app */,
-				69255BE0183D5A7D00637E04 /* ScrollKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,24 +115,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		69255BE7183D5A7D00637E04 /* ScrollKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				69255BED183D5A7D00637E04 /* ScrollKitTests.m */,
-				69255BE8183D5A7D00637E04 /* Supporting Files */,
-			);
-			path = ScrollKitTests;
-			sourceTree = "<group>";
-		};
-		69255BE8183D5A7D00637E04 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				69255BE9183D5A7D00637E04 /* ScrollKitTests-Info.plist */,
-				69255BEA183D5A7D00637E04 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,24 +135,6 @@
 			productReference = 69255BB8183D5A7D00637E04 /* ScrollKit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		69255BDF183D5A7D00637E04 /* ScrollKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 69255BF4183D5A7D00637E04 /* Build configuration list for PBXNativeTarget "ScrollKitTests" */;
-			buildPhases = (
-				69255BDC183D5A7D00637E04 /* Sources */,
-				69255BDD183D5A7D00637E04 /* Frameworks */,
-				69255BDE183D5A7D00637E04 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				69255BE6183D5A7D00637E04 /* PBXTargetDependency */,
-			);
-			name = ScrollKitTests;
-			productName = ScrollKitTests;
-			productReference = 69255BE0183D5A7D00637E04 /* ScrollKitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -211,11 +144,6 @@
 				CLASSPREFIX = II;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = IMGNRY;
-				TargetAttributes = {
-					69255BDF183D5A7D00637E04 = {
-						TestTargetID = 69255BB7183D5A7D00637E04;
-					};
-				};
 			};
 			buildConfigurationList = 69255BB3183D5A7D00637E04 /* Build configuration list for PBXProject "ScrollKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -231,7 +159,6 @@
 			projectRoot = "";
 			targets = (
 				69255BB7183D5A7D00637E04 /* ScrollKit */,
-				69255BDF183D5A7D00637E04 /* ScrollKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,14 +172,6 @@
 				69255BDB183D5A7D00637E04 /* Images.xcassets in Resources */,
 				69255BD9183D5A7D00637E04 /* Spaceship.png in Resources */,
 				69255BD1183D5A7D00637E04 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		69255BDE183D5A7D00637E04 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				69255BEC183D5A7D00637E04 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,23 +189,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69255BDC183D5A7D00637E04 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				69255BEE183D5A7D00637E04 /* ScrollKitTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		69255BE6183D5A7D00637E04 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 69255BB7183D5A7D00637E04 /* ScrollKit */;
-			targetProxy = 69255BE5183D5A7D00637E04 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		69255BC6183D5A7D00637E04 /* InfoPlist.strings */ = {
@@ -303,14 +206,6 @@
 				69255BD0183D5A7D00637E04 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		69255BEA183D5A7D00637E04 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				69255BEB183D5A7D00637E04 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -416,48 +311,6 @@
 			};
 			name = Release;
 		};
-		69255BF5183D5A7D00637E04 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ScrollKit.app/ScrollKit";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ScrollKit/ScrollKit-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ScrollKitTests/ScrollKitTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		69255BF6183D5A7D00637E04 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ScrollKit.app/ScrollKit";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ScrollKit/ScrollKit-Prefix.pch";
-				INFOPLIST_FILE = "ScrollKitTests/ScrollKitTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -475,14 +328,6 @@
 			buildConfigurations = (
 				69255BF2183D5A7D00637E04 /* Debug */,
 				69255BF3183D5A7D00637E04 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		69255BF4183D5A7D00637E04 /* Build configuration list for PBXNativeTarget "ScrollKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				69255BF5183D5A7D00637E04 /* Debug */,
-				69255BF6183D5A7D00637E04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
