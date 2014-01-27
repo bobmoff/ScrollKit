@@ -110,7 +110,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="539" customClass="SKView">
-                        <rect key="frame" x="0.0" y="15" width="785" height="585"/>
+                        <rect key="frame" x="0.0" y="20" width="780" height="580"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </customView>
                     <scrollView wantsLayer="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yG-D7-JQ7">
@@ -139,12 +139,12 @@
                 <constraints>
                     <constraint firstItem="3yG-D7-JQ7" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="4T9-Qz-D4Z"/>
                     <constraint firstAttribute="bottom" secondItem="3yG-D7-JQ7" secondAttribute="bottom" id="H8t-s2-XzC"/>
-                    <constraint firstItem="539" firstAttribute="top" secondItem="372" secondAttribute="top" id="UJU-8k-EKC"/>
+                    <constraint firstItem="539" firstAttribute="top" secondItem="372" secondAttribute="top" placeholder="YES" id="UJU-8k-EKC"/>
                     <constraint firstAttribute="trailing" secondItem="3yG-D7-JQ7" secondAttribute="trailing" id="XsZ-sX-aYO"/>
                     <constraint firstItem="3yG-D7-JQ7" firstAttribute="top" secondItem="372" secondAttribute="top" id="cvO-cD-oQE"/>
-                    <constraint firstAttribute="bottom" secondItem="539" secondAttribute="bottom" constant="15" id="mS7-3O-BWh"/>
-                    <constraint firstAttribute="trailing" secondItem="539" secondAttribute="trailing" constant="15" id="oMQ-Yc-P8V"/>
-                    <constraint firstItem="539" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="wJv-tK-O2q"/>
+                    <constraint firstAttribute="bottom" secondItem="539" secondAttribute="bottom" constant="20" placeholder="YES" id="mS7-3O-BWh"/>
+                    <constraint firstAttribute="trailing" secondItem="539" secondAttribute="trailing" constant="20" placeholder="YES" id="oMQ-Yc-P8V"/>
+                    <constraint firstItem="539" firstAttribute="leading" secondItem="372" secondAttribute="leading" placeholder="YES" id="wJv-tK-O2q"/>
                 </constraints>
             </view>
         </window>

@@ -40,18 +40,40 @@
 
     // configure the scroller to have no visible border
     [self.scrollView setBorderType:NSNoBorder];
+    [self.scrollView setAutohidesScrollers:YES];
 
-    // set the autoresizing mask so that the scroll view will
-    // resize with the window
-    [self.scrollView setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
-
-    NSSize sizeForContent = CGSizeMake(self.skView.frame.size.width, self.skView.frame.size.height * 1.5);
-    NSRect frame = NSMakeRect(0, 0, sizeForContent.width, sizeForContent.height);
-    NSView *clearDocumentView = [[NSView alloc] initWithFrame:frame];
+    NSView *clearDocumentView = [[NSView alloc] initWithFrame:(NSRect){0,0,0,0}];
     [clearDocumentView setWantsLayer:YES];
     [clearDocumentView setAlphaValue:0.2];
-
+    [clearDocumentView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView setDocumentView:clearDocumentView];
+
+    SKView *skView = self.skView;
+    NSScrollView *scrollView = self.scrollView;
+
+    NSDictionary *viewsDict = NSDictionaryOfVariableBindings(skView, scrollView, clearDocumentView);
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[skView(==clearDocumentView)]" options:0 metrics:nil views:viewsDict];
+    [self.window.contentView addConstraints:constraints];
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[skView(==clearDocumentView)]" options:0 metrics:nil views:viewsDict];
+    [self.window.contentView addConstraints:constraints];
+
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:clearDocumentView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:scrollView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                 multiplier:1.5
+                                                                   constant:-15.0];
+    [self.window.contentView addConstraint:constraint];
+    constraint = [NSLayoutConstraint constraintWithItem:clearDocumentView
+                                              attribute:NSLayoutAttributeWidth
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:scrollView
+                                              attribute:NSLayoutAttributeWidth
+                                             multiplier:1.0
+                                               constant:-15.0];
+    [self.window.contentView addConstraint:constraint];
+
 
     // Make sure the watched view is sending bounds changed
     // notifications (which is probably does anyway, but calling
