@@ -10,20 +10,11 @@
 #import "IIMyScene.h"
 #import <SpriteKit/SpriteKit.h>
 
+const CGFloat multiplier = 1.5;
 
-@interface TESTScrollView : NSScrollView
+@interface ENHAppDelegate () <NSWindowDelegate>
 
-@end
-
-@implementation TESTScrollView
-
-
-
-@end
-
-@interface ENHAppDelegate ()
-
-@property(nonatomic, weak)IBOutlet TESTScrollView *scrollView;
+@property(nonatomic, weak)IBOutlet NSScrollView *scrollView;
 @property(nonatomic, readonly)IIMyScene *scene;
 
 @end
@@ -34,11 +25,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-
-    SKScene *scene = [IIMyScene sceneWithSize:CGSizeMake(1024, 768)];
+    IIMyScene *scene = [IIMyScene sceneWithSize:CGSizeMake(1024, 768)];
 
     //Set the scale mode to scale to fit the window
-    scene.scaleMode = SKSceneScaleModeFill;
+    scene.scaleMode = SKSceneScaleModeResizeFill;
 
     [self.skView presentScene:scene];
 
@@ -54,13 +44,18 @@
 
     NSView *clearDocumentView = [[NSView alloc] initWithFrame:(NSRect){0,0,0,0}];
     [clearDocumentView setWantsLayer:YES];
-    [clearDocumentView setAlphaValue:0.2];
+
     [clearDocumentView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView setDocumentView:clearDocumentView];
 
     SKView *skView = self.skView;
     NSScrollView *scrollView = self.scrollView;
 
+    CGRect frame = [self.window.contentView frame];
+    CGSize contentSize = frame.size;
+    contentSize.height *= multiplier;
+    [scene setContentSize:contentSize];
+    
     NSDictionary *viewsDict = NSDictionaryOfVariableBindings(skView, scrollView, clearDocumentView);
     NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[skView(==clearDocumentView)]" options:0 metrics:nil views:viewsDict];
     [self.window.contentView addConstraints:constraints];
@@ -72,7 +67,7 @@
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:scrollView
                                                                   attribute:NSLayoutAttributeHeight
-                                                                 multiplier:1.5
+                                                                 multiplier:multiplier
                                                                    constant:-15.0];
     [self.window.contentView addConstraint:constraint];
     constraint = [NSLayoutConstraint constraintWithItem:clearDocumentView
@@ -84,7 +79,8 @@
                                                constant:-15.0];
     [self.window.contentView addConstraint:constraint];
 
-    //~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleOSX10.9.CoreReference.docset/Contents/Resources/Documents/documentation/Cocoa/Conceptual/NSScrollViewGuide/Articles/SynchroScroll.html#//apple_ref/doc/uid/TP40003537-SW5
+    //~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleOSX10.9.CoreReference.docset/
+    //Contents/Resources/Documents/documentation/Cocoa/Conceptual/NSScrollViewGuide/Articles/SynchroScroll.html
     // Make sure the watched view is sending bounds changed
     // notifications (which is probably does anyway, but calling
     // this again won't hurt).
@@ -92,12 +88,21 @@
 
     // a register for those notifications on the synchronized content view.
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(scrollViewContentBoundsDidChange:)
+                                             selector:@selector(scrollViewDidScroll:)
                                                  name:NSViewBoundsDidChangeNotification
                                                object:self.scrollView.contentView];
 }
 
-- (void)scrollViewContentBoundsDidChange:(NSNotification *)notification
+-(void)windowDidResize:(NSNotification *)notification
+{
+    NSLog(@"%@ %@", NSStringFromSelector(_cmd), notification);
+    CGRect frame = [self.window.contentView frame];
+    CGSize contentSize = frame.size;
+    contentSize.height *= multiplier;
+    [self.scene setContentSize:contentSize];
+}
+
+- (void)scrollViewDidScroll:(NSNotification *)notification
 {
     // get the changed content view from the notification
     NSClipView *changedContentView=[notification object];
@@ -105,10 +110,7 @@
     // get the origin of the NSClipView of the scroll view that
     // we're watching
     NSPoint changedBoundsOrigin = [changedContentView documentVisibleRect].origin;
-    NSLog(@"scroll view changed = %@", NSStringFromPoint(changedBoundsOrigin));
-    CGPoint position = self.scene.spriteToScroll.position;
-    position.y = changedBoundsOrigin.y;
-    self.scene.spriteToScroll.position = position;
+    [self.scene setContentOffset:changedBoundsOrigin];
 }
 
 -(IIMyScene *)scene
@@ -122,7 +124,9 @@
 
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewBoundsDidChangeNotification object:self.scrollView];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSViewBoundsDidChangeNotification
+                                                  object:self.scrollView];
 }
 
 @end

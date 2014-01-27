@@ -147,6 +147,9 @@
                     <constraint firstItem="539" firstAttribute="leading" secondItem="372" secondAttribute="leading" placeholder="YES" id="wJv-tK-O2q"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="delegate" destination="494" id="1Cb-F0-MSI"/>
+            </connections>
         </window>
         <customObject id="494" customClass="ENHAppDelegate">
             <connections>

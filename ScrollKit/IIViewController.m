@@ -9,9 +9,14 @@
 #import "IIViewController.h"
 #import "IIMyScene.h"
 
-@implementation IIViewController {
-    IIMyScene *_scene;
-}
+@interface IIViewController ()
+
+@property(nonatomic, weak)IIMyScene *scene;
+@property(nonatomic, weak)UIView *clearContentView;
+
+@end
+
+@implementation IIViewController
 
 - (void)viewDidLoad
 {
@@ -23,26 +28,52 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    _scene = [IIMyScene sceneWithSize:skView.bounds.size];
-    _scene.scaleMode = SKSceneScaleModeFill;
+    IIMyScene *scene = [IIMyScene sceneWithSize:skView.bounds.size];
+    scene.scaleMode = SKSceneScaleModeFill;
     
     // Present the scene.
-    [skView presentScene:_scene];
-    
+    [skView presentScene:scene];
+    _scene = scene;
+
+    CGSize contentSize = skView.frame.size;
+    contentSize.height *= 1.5;
+    [scene setContentSize:contentSize];
+
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:skView.frame];
+    [scrollView setContentSize:contentSize];
+
     scrollView.delegate = self;
-    scrollView.contentSize = CGSizeMake(skView.frame.size.width, skView.frame.size.height * 1.5);
-    scrollView.hidden = YES;
+    [scrollView setMinimumZoomScale:1.0];
+    [scrollView setMaximumZoomScale:2.0];
+    [scrollView setIndicatorStyle:UIScrollViewIndicatorStyleWhite];
+    UIView *clearContentView = [[UIView alloc] initWithFrame:(CGRect){.origin = CGPointZero, .size = skView.frame.size}];
+    [clearContentView setBackgroundColor:[UIColor clearColor]];
+    [scrollView addSubview:clearContentView];
+
+    _clearContentView = clearContentView;
+
     [skView addSubview:scrollView];
-    [skView addGestureRecognizer:scrollView.panGestureRecognizer];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGPoint position = _scene.spriteToScroll.position;
-    position.y = scrollView.contentOffset.y;
-    position.x = scrollView.contentOffset.x;
-    _scene.spriteToScroll.position = position;
+    CGPoint contentOffset = [scrollView contentOffset];
+    [self.scene setContentOffset:contentOffset];
+}
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.clearContentView;
+}
+
+-(void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view
+{
+
+}
+
+-(void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
+{
+
 }
 
 @end

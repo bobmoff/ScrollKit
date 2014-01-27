@@ -10,6 +10,7 @@
 
 @interface IIMyScene : SKScene
 
-@property (nonatomic) SKSpriteNode *spriteToScroll;
+@property (nonatomic) CGSize contentSize;
+@property(nonatomic) CGPoint contentOffset;
 
 @end
