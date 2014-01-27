@@ -24,7 +24,7 @@
     
     // Create and configure the scene.
     _scene = [IIMyScene sceneWithSize:skView.bounds.size];
-    _scene.scaleMode = SKSceneScaleModeAspectFill;
+    _scene.scaleMode = SKSceneScaleModeFill;
     
     // Present the scene.
     [skView presentScene:_scene];
@@ -41,6 +41,7 @@
 {
     CGPoint position = _scene.spriteToScroll.position;
     position.y = scrollView.contentOffset.y;
+    position.x = scrollView.contentOffset.x;
     _scene.spriteToScroll.position = position;
 }
 

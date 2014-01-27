@@ -14,7 +14,7 @@
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
-        _spriteToScroll = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(size.width, size.height / 2)];
+        _spriteToScroll = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:CGSizeMake(size.width * .5, size.height * .5)];
         _spriteToScroll.anchorPoint = CGPointMake(0, 0);
         [self addChild:_spriteToScroll];
     }

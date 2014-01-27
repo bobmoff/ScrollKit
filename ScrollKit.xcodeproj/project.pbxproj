@@ -19,6 +19,15 @@
 		69255BD7183D5A7D00637E04 /* IIMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BD6183D5A7D00637E04 /* IIMyScene.m */; };
 		69255BD9183D5A7D00637E04 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 69255BD8183D5A7D00637E04 /* Spaceship.png */; };
 		69255BDB183D5A7D00637E04 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69255BDA183D5A7D00637E04 /* Images.xcassets */; };
+		AB0EE6281895CB6800BC6756 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0EE6271895CB6800BC6756 /* Cocoa.framework */; };
+		AB0EE6291895CB6800BC6756 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69255BC1183D5A7D00637E04 /* SpriteKit.framework */; };
+		AB0EE6331895CB6800BC6756 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB0EE6311895CB6800BC6756 /* InfoPlist.strings */; };
+		AB0EE6351895CB6800BC6756 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0EE6341895CB6800BC6756 /* main.m */; };
+		AB0EE6391895CB6800BC6756 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB0EE6371895CB6800BC6756 /* Credits.rtf */; };
+		AB0EE63B1895CB6800BC6756 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0EE63A1895CB6800BC6756 /* MainMenu.xib */; };
+		AB0EE6401895CB6800BC6756 /* ENHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0EE63F1895CB6800BC6756 /* ENHAppDelegate.m */; };
+		AB0EE6451895CB6800BC6756 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0EE6441895CB6800BC6756 /* Images.xcassets */; };
+		AB0EE65D1895CCC800BC6756 /* IIMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BD6183D5A7D00637E04 /* IIMyScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +50,20 @@
 		69255BD8183D5A7D00637E04 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		69255BDA183D5A7D00637E04 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69255BE1183D5A7D00637E04 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AB0EE6261895CB6800BC6756 /* ScrollKitOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollKitOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB0EE6271895CB6800BC6756 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		AB0EE62B1895CB6800BC6756 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		AB0EE62C1895CB6800BC6756 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AB0EE62D1895CB6800BC6756 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AB0EE6301895CB6800BC6756 /* ScrollKitOSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScrollKitOSX-Info.plist"; sourceTree = "<group>"; };
+		AB0EE6321895CB6800BC6756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB0EE6341895CB6800BC6756 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AB0EE6361895CB6800BC6756 /* ScrollKitOSX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScrollKitOSX-Prefix.pch"; sourceTree = "<group>"; };
+		AB0EE6381895CB6800BC6756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		AB0EE63A1895CB6800BC6756 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		AB0EE63F1895CB6800BC6756 /* ENHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ENHAppDelegate.m; sourceTree = "<group>"; };
+		AB0EE6411895CB6800BC6756 /* ENHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ENHAppDelegate.h; sourceTree = "<group>"; };
+		AB0EE6441895CB6800BC6756 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +78,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AB0EE6231895CB6800BC6756 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB0EE6291895CB6800BC6756 /* SpriteKit.framework in Frameworks */,
+				AB0EE6281895CB6800BC6756 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -62,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				69255BC3183D5A7D00637E04 /* ScrollKit */,
+				AB0EE62E1895CB6800BC6756 /* ScrollKitOSX */,
 				69255BBA183D5A7D00637E04 /* Frameworks */,
 				69255BB9183D5A7D00637E04 /* Products */,
 			);
@@ -71,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				69255BB8183D5A7D00637E04 /* ScrollKit.app */,
+				AB0EE6261895CB6800BC6756 /* ScrollKitOSX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +117,8 @@
 				69255BBF183D5A7D00637E04 /* UIKit.framework */,
 				69255BC1183D5A7D00637E04 /* SpriteKit.framework */,
 				69255BE1183D5A7D00637E04 /* XCTest.framework */,
+				AB0EE6271895CB6800BC6756 /* Cocoa.framework */,
+				AB0EE62A1895CB6800BC6756 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,6 +151,40 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AB0EE62A1895CB6800BC6756 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB0EE62B1895CB6800BC6756 /* AppKit.framework */,
+				AB0EE62C1895CB6800BC6756 /* CoreData.framework */,
+				AB0EE62D1895CB6800BC6756 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		AB0EE62E1895CB6800BC6756 /* ScrollKitOSX */ = {
+			isa = PBXGroup;
+			children = (
+				AB0EE63A1895CB6800BC6756 /* MainMenu.xib */,
+				AB0EE6411895CB6800BC6756 /* ENHAppDelegate.h */,
+				AB0EE63F1895CB6800BC6756 /* ENHAppDelegate.m */,
+				AB0EE6441895CB6800BC6756 /* Images.xcassets */,
+				AB0EE62F1895CB6800BC6756 /* Supporting Files */,
+			);
+			path = ScrollKitOSX;
+			sourceTree = "<group>";
+		};
+		AB0EE62F1895CB6800BC6756 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB0EE6301895CB6800BC6756 /* ScrollKitOSX-Info.plist */,
+				AB0EE6311895CB6800BC6756 /* InfoPlist.strings */,
+				AB0EE6341895CB6800BC6756 /* main.m */,
+				AB0EE6361895CB6800BC6756 /* ScrollKitOSX-Prefix.pch */,
+				AB0EE6371895CB6800BC6756 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,6 +203,23 @@
 			name = ScrollKit;
 			productName = ScrollKit;
 			productReference = 69255BB8183D5A7D00637E04 /* ScrollKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AB0EE6251895CB6800BC6756 /* ScrollKitOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB0EE6571895CB6800BC6756 /* Build configuration list for PBXNativeTarget "ScrollKitOSX" */;
+			buildPhases = (
+				AB0EE6221895CB6800BC6756 /* Sources */,
+				AB0EE6231895CB6800BC6756 /* Frameworks */,
+				AB0EE6241895CB6800BC6756 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScrollKitOSX;
+			productName = ScrollKitOSX;
+			productReference = AB0EE6261895CB6800BC6756 /* ScrollKitOSX.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -159,6 +246,7 @@
 			projectRoot = "";
 			targets = (
 				69255BB7183D5A7D00637E04 /* ScrollKit */,
+				AB0EE6251895CB6800BC6756 /* ScrollKitOSX */,
 			);
 		};
 /* End PBXProject section */
@@ -175,6 +263,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AB0EE6241895CB6800BC6756 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB0EE6451895CB6800BC6756 /* Images.xcassets in Resources */,
+				AB0EE6331895CB6800BC6756 /* InfoPlist.strings in Resources */,
+				AB0EE6391895CB6800BC6756 /* Credits.rtf in Resources */,
+				AB0EE63B1895CB6800BC6756 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -186,6 +285,16 @@
 				69255BCE183D5A7D00637E04 /* IIAppDelegate.m in Sources */,
 				69255BCA183D5A7D00637E04 /* main.m in Sources */,
 				69255BD4183D5A7D00637E04 /* IIViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB0EE6221895CB6800BC6756 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB0EE65D1895CCC800BC6756 /* IIMyScene.m in Sources */,
+				AB0EE6401895CB6800BC6756 /* ENHAppDelegate.m in Sources */,
+				AB0EE6351895CB6800BC6756 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +315,22 @@
 				69255BD0183D5A7D00637E04 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB0EE6311895CB6800BC6756 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB0EE6321895CB6800BC6756 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AB0EE6371895CB6800BC6756 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB0EE6381895CB6800BC6756 /* en */,
+			);
+			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -311,6 +436,53 @@
 			};
 			name = Release;
 		};
+		AB0EE6581895CB6800BC6756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScrollKitOSX/ScrollKitOSX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ScrollKitOSX/ScrollKitOSX-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AB0EE6591895CB6800BC6756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScrollKitOSX/ScrollKitOSX-Prefix.pch";
+				INFOPLIST_FILE = "ScrollKitOSX/ScrollKitOSX-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -328,6 +500,15 @@
 			buildConfigurations = (
 				69255BF2183D5A7D00637E04 /* Debug */,
 				69255BF3183D5A7D00637E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB0EE6571895CB6800BC6756 /* Build configuration list for PBXNativeTarget "ScrollKitOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB0EE6581895CB6800BC6756 /* Debug */,
+				AB0EE6591895CB6800BC6756 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
