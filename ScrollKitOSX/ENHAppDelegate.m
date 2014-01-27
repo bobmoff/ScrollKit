@@ -10,9 +10,20 @@
 #import "IIMyScene.h"
 #import <SpriteKit/SpriteKit.h>
 
+
+@interface TESTScrollView : NSScrollView
+
+@end
+
+@implementation TESTScrollView
+
+
+
+@end
+
 @interface ENHAppDelegate ()
 
-@property(nonatomic, weak)IBOutlet NSScrollView *scrollView;
+@property(nonatomic, weak)IBOutlet TESTScrollView *scrollView;
 @property(nonatomic, readonly)IIMyScene *scene;
 
 @end
@@ -23,10 +34,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    /* Pick a size for the scene */
+
     SKScene *scene = [IIMyScene sceneWithSize:CGSizeMake(1024, 768)];
 
-    /* Set the scale mode to scale to fit the window */
+    //Set the scale mode to scale to fit the window
     scene.scaleMode = SKSceneScaleModeFill;
 
     [self.skView presentScene:scene];
@@ -38,7 +49,6 @@
     [self.scrollView setHasVerticalScroller:YES];
     [self.scrollView setHasHorizontalScroller:YES];
 
-    // configure the scroller to have no visible border
     [self.scrollView setBorderType:NSNoBorder];
     [self.scrollView setAutohidesScrollers:YES];
 
@@ -74,7 +84,7 @@
                                                constant:-15.0];
     [self.window.contentView addConstraint:constraint];
 
-
+    //~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleOSX10.9.CoreReference.docset/Contents/Resources/Documents/documentation/Cocoa/Conceptual/NSScrollViewGuide/Articles/SynchroScroll.html#//apple_ref/doc/uid/TP40003537-SW5
     // Make sure the watched view is sending bounds changed
     // notifications (which is probably does anyway, but calling
     // this again won't hurt).
