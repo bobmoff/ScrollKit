@@ -17,7 +17,7 @@
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
 
-        SKSpriteNode *spriteToScroll = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:size];
+        SKSpriteNode *spriteToScroll = [SKSpriteNode spriteNodeWithColor:[SKColor clearColor] size:size];
         spriteToScroll.anchorPoint = self.anchorPoint;
         [self addChild:spriteToScroll];
 
@@ -25,9 +25,18 @@
                                                                  size:(CGSize){.width = size.width,
                                                                                .height = size.height*.25}];
         [greenTestSprite setName:@"greenTestSprite"];
-        _contentSize = size;
-        [greenTestSprite setAnchorPoint:self.anchorPoint];
+        [greenTestSprite setAnchorPoint:(CGPoint){0,0}];
         [spriteToScroll addChild:greenTestSprite];
+
+        SKSpriteNode *blueTestSprite = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor]
+                                                                    size:(CGSize){.width = size.width*.25,
+                                                                        .height = size.height*.25}];
+        [blueTestSprite setName:@"blueTestSprite"];
+        [blueTestSprite setAnchorPoint:(CGPoint){0,0}];
+        [blueTestSprite setPosition:(CGPoint){.x = size.width * .25, .y = size.height *.65}];
+        [spriteToScroll addChild:blueTestSprite];
+        _contentSize = size;
+
         _spriteToScroll = spriteToScroll;
         [self setContentOffset:(CGPoint){0,0}];
     }

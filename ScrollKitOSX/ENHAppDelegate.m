@@ -124,7 +124,8 @@ const CGFloat multiplier = 1.5;
     // we can just use its origin as the content offset. Our SKScene
     // subclass is designed for upper-left origin as far as content
     // offset is concerned so it works with UIScrollView in iOS.
-    // Since the origin is normally lower-left on OS X...
+    // Since the origin is normally lower-left on OS X we need a flipped
+    // view.
     CGRect documentVisibleRect = [changedContentView documentVisibleRect];
     CGPoint changedBoundsOrigin = documentVisibleRect.origin;
     [self.scene setContentOffset:changedBoundsOrigin];
