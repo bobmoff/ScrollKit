@@ -37,6 +37,7 @@
 
     CGSize contentSize = skView.frame.size;
     contentSize.height *= 1.5;
+    contentSize.width *= 1.5;
     [scene setContentSize:contentSize];
 
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:skView.frame];
