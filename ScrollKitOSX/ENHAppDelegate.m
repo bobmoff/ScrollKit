@@ -76,20 +76,21 @@ const CGFloat multiplier = 1.5;
                                                                      toItem:scrollView
                                                                   attribute:NSLayoutAttributeHeight
                                                                  multiplier:multiplier
-                                                                   constant:-15.0];
+                                                                   constant:0.0];
     [self.window.contentView addConstraint:constraint];
     constraint = [NSLayoutConstraint constraintWithItem:clearDocumentView
                                               attribute:NSLayoutAttributeWidth
                                               relatedBy:NSLayoutRelationEqual
                                                  toItem:scrollView
                                               attribute:NSLayoutAttributeWidth
-                                             multiplier:1.0
-                                               constant:-15.0];
+                                             multiplier:multiplier
+                                               constant:0.0];
     [self.window.contentView addConstraint:constraint];
 
-        CGRect frame = [self.window.contentView frame];
+    CGRect frame = [self.window.contentView frame];
     CGSize contentSize = frame.size;
     contentSize.height *= multiplier;
+    contentSize.width *= multiplier;
     [scene setContentSize:contentSize];
 
     //~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleOSX10.9.CoreReference.docset/
@@ -111,6 +112,7 @@ const CGFloat multiplier = 1.5;
     CGRect frame = [self.window.contentView frame];
     CGSize contentSize = frame.size;
     contentSize.height *= multiplier;
+    contentSize.width *= multiplier;
     [self.scene setContentSize:contentSize];
     [self _scrollViewDidScroll:self.scrollView];
 }
