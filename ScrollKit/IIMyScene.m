@@ -34,7 +34,6 @@
         [spriteForStaticGeometry setAnchorPoint:(CGPoint){0,0}];
         [spriteForStaticGeometry setPosition:(CGPoint){0, -size.height}];
         [self addChild:spriteForStaticGeometry];
-        _spriteForStaticGeometry = spriteForStaticGeometry;
 
         SKLabelNode *stationaryLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
         [stationaryLabel setText:@"I'm not gonna move, nope, nope."];
@@ -62,6 +61,7 @@
 
         _spriteToScroll = spriteToScroll;
         _spriteForScrollingGeometry = spriteForGeometry;
+        _spriteForStaticGeometry = spriteForStaticGeometry;
 
         [self setContentOffset:(CGPoint){0,0}];
     }
