@@ -24,7 +24,7 @@
 		AB0EE6351895CB6800BC6756 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0EE6341895CB6800BC6756 /* main.m */; };
 		AB0EE6391895CB6800BC6756 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB0EE6371895CB6800BC6756 /* Credits.rtf */; };
 		AB0EE63B1895CB6800BC6756 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0EE63A1895CB6800BC6756 /* MainMenu.xib */; };
-		AB0EE6401895CB6800BC6756 /* ENHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0EE63F1895CB6800BC6756 /* ENHAppDelegate.m */; };
+		AB0EE6401895CB6800BC6756 /* IIOSXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0EE63F1895CB6800BC6756 /* IIOSXAppDelegate.m */; };
 		AB0EE6451895CB6800BC6756 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0EE6441895CB6800BC6756 /* Images.xcassets */; };
 		AB0EE65D1895CCC800BC6756 /* IIMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BD6183D5A7D00637E04 /* IIMyScene.m */; };
 /* End PBXBuildFile section */
@@ -59,8 +59,8 @@
 		AB0EE6361895CB6800BC6756 /* ScrollKitOSX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScrollKitOSX-Prefix.pch"; sourceTree = "<group>"; };
 		AB0EE6381895CB6800BC6756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		AB0EE63A1895CB6800BC6756 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		AB0EE63F1895CB6800BC6756 /* ENHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ENHAppDelegate.m; sourceTree = "<group>"; };
-		AB0EE6411895CB6800BC6756 /* ENHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ENHAppDelegate.h; sourceTree = "<group>"; };
+		AB0EE63F1895CB6800BC6756 /* IIOSXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IIOSXAppDelegate.m; sourceTree = "<group>"; };
+		AB0EE6411895CB6800BC6756 /* IIOSXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIOSXAppDelegate.h; sourceTree = "<group>"; };
 		AB0EE6441895CB6800BC6756 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,8 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				AB0EE63A1895CB6800BC6756 /* MainMenu.xib */,
-				AB0EE6411895CB6800BC6756 /* ENHAppDelegate.h */,
-				AB0EE63F1895CB6800BC6756 /* ENHAppDelegate.m */,
+				AB0EE6411895CB6800BC6756 /* IIOSXAppDelegate.h */,
+				AB0EE63F1895CB6800BC6756 /* IIOSXAppDelegate.m */,
 				AB0EE6441895CB6800BC6756 /* Images.xcassets */,
 				AB0EE62F1895CB6800BC6756 /* Supporting Files */,
 			);
@@ -289,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB0EE65D1895CCC800BC6756 /* IIMyScene.m in Sources */,
-				AB0EE6401895CB6800BC6756 /* ENHAppDelegate.m in Sources */,
+				AB0EE6401895CB6800BC6756 /* IIOSXAppDelegate.m in Sources */,
 				AB0EE6351895CB6800BC6756 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

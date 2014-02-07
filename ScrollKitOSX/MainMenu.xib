@@ -151,7 +151,7 @@
                 <outlet property="delegate" destination="494" id="1Cb-F0-MSI"/>
             </connections>
         </window>
-        <customObject id="494" customClass="ENHAppDelegate">
+        <customObject id="494" customClass="IIOSXAppDelegate">
             <connections>
                 <outlet property="scrollView" destination="3yG-D7-JQ7" id="bqr-Yd-VOn"/>
                 <outlet property="skView" destination="539" id="QWc-4K-H9B"/>

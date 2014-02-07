@@ -1,12 +1,11 @@
 //
-//  ENHAppDelegate.m
+//  IIOSXAppDelegate.m
 //  ScrollKitOSX
 //
 //  Created by Jonathan Saggau on 1/26/14.
-//  Copyright (c) 2014 IMGNRY. All rights reserved.
 //
 
-#import "ENHAppDelegate.h"
+#import "IIOSXAppDelegate.h"
 #import "IIMyScene.h"
 #import <SpriteKit/SpriteKit.h>
 
@@ -24,14 +23,14 @@ const CGFloat multiplier = 1.5;
 
 @end
 
-@interface ENHAppDelegate () <NSWindowDelegate>
+@interface IIOSXAppDelegate () <NSWindowDelegate>
 
 @property(nonatomic, weak)IBOutlet NSScrollView *scrollView;
 @property(nonatomic, readonly)IIMyScene *scene;
 
 @end
 
-@implementation ENHAppDelegate
+@implementation IIOSXAppDelegate
 
 @synthesize window = _window;
 
