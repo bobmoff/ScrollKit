@@ -47,7 +47,7 @@ static NSString * kViewTransformChanged = @"view transform changed";
 
     scrollView.delegate = self;
     [scrollView setMinimumZoomScale:1.0];
-    [scrollView setMaximumZoomScale:4.0];
+    [scrollView setMaximumZoomScale:3.0];
     [scrollView setIndicatorStyle:UIScrollViewIndicatorStyleWhite];
     UIView *clearContentView = [[UIView alloc] initWithFrame:(CGRect){.origin = CGPointZero, .size = contentSize}];
     [clearContentView setBackgroundColor:[UIColor clearColor]];

@@ -46,9 +46,6 @@ typedef NS_ENUM(NSInteger, IIMySceneZPosition)
         [spriteForScrollingGeometry setPosition:(CGPoint){0, -size.height}];
         [spriteToScroll addChild:spriteForScrollingGeometry];
 
-        SKSpriteNode *scrollingGeometryAnchorMarker = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:(CGSize){20,20}];
-        [spriteForScrollingGeometry addChild:scrollingGeometryAnchorMarker];
-
         SKSpriteNode *spriteForStaticGeometry = [SKSpriteNode spriteNodeWithColor:[SKColor clearColor] size:size];
         [spriteForStaticGeometry setAnchorPoint:(CGPoint){0,0}];
         [spriteForStaticGeometry setPosition:(CGPoint){0, -size.height}];
@@ -76,9 +73,9 @@ typedef NS_ENUM(NSInteger, IIMySceneZPosition)
         [spriteToHostHorizontalAndVerticalScrolling addChild:spriteForHorizontalScrolling];
 
         //Test sprites for constrained Scrolling
-        CGFloat labelPosition = 50.0;
+        CGFloat labelPosition = -500.0;
         CGFloat stepSize = 50.0;
-        while (labelPosition < 1000.0)
+        while (labelPosition < 2000.0)
         {
             NSString *labelText = [NSString stringWithFormat:@"%5.0f", labelPosition];
 
