@@ -74,22 +74,31 @@ typedef NS_ENUM(NSInteger, IIMySceneZPosition)
         [spriteToHostHorizontalAndVerticalScrolling addChild:spriteForHorizontalScrolling];
 
         //Test sprites for constrained Scrolling
-        SKLabelNode *horizontallyScrollingLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
-        [horizontallyScrollingLabel setText:@"Left and right and not up and down, just left and right because I am so cool and I am an axis label!"];
-        [horizontallyScrollingLabel setFontSize:14.0];
-        [horizontallyScrollingLabel setFontColor:[SKColor lightGrayColor]];
-        [horizontallyScrollingLabel setPosition:(CGPoint){.x = 10.0, .y = 30.0}];
-        [horizontallyScrollingLabel setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeLeft];
-        [spriteForHorizontalScrolling addChild:horizontallyScrollingLabel];
+        CGFloat labelPosition = 50.0;
+        CGFloat stepSize = 50.0;
+        while (labelPosition < 1000.0)
+        {
+            NSString *labelText = [NSString stringWithFormat:@"%5.0f", labelPosition];
 
-        SKLabelNode *verticallyScrollingLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
-        [verticallyScrollingLabel setText:@"V:50"];
-        [verticallyScrollingLabel setFontSize:14.0];
-        [verticallyScrollingLabel setFontColor:[SKColor lightGrayColor]];
-        [verticallyScrollingLabel setPosition:(CGPoint){.x = 10.0, .y = 50.0}];
-        [verticallyScrollingLabel setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeLeft];
-        [verticallyScrollingLabel setZPosition:kIIMySceneZPositionVerticalAndHorizontalScrolling];
-        [spriteForVerticalScrolling addChild:verticallyScrollingLabel];
+            SKLabelNode *horizontallyScrollingLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+            [horizontallyScrollingLabel setText:labelText];
+            [horizontallyScrollingLabel setFontSize:14.0];
+            [horizontallyScrollingLabel setFontColor:[SKColor lightGrayColor]];
+            [horizontallyScrollingLabel setPosition:(CGPoint){.x = 10.0, .y = labelPosition}];
+            [horizontallyScrollingLabel setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeLeft];
+            [spriteForHorizontalScrolling addChild:horizontallyScrollingLabel];
+
+            SKLabelNode *verticallyScrollingLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+            [verticallyScrollingLabel setText:labelText];
+            [verticallyScrollingLabel setFontSize:14.0];
+            [verticallyScrollingLabel setFontColor:[SKColor lightGrayColor]];
+            [verticallyScrollingLabel setPosition:(CGPoint){.x = labelPosition, .y = 10.0}];
+            [verticallyScrollingLabel setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeLeft];
+            [verticallyScrollingLabel setZPosition:kIIMySceneZPositionVerticalAndHorizontalScrolling];
+            [spriteForVerticalScrolling addChild:verticallyScrollingLabel];
+            labelPosition += stepSize;
+        }
+
 
         //Test sprites for scrolling and zooming
         SKSpriteNode *greenTestSprite = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor]
@@ -112,7 +121,7 @@ typedef NS_ENUM(NSInteger, IIMySceneZPosition)
         [stationaryLabel setText:@"I'm not gonna move, nope, nope."];
         [stationaryLabel setFontSize:14.0];
         [stationaryLabel setFontColor:[SKColor darkGrayColor]];
-        [stationaryLabel setPosition:(CGPoint){.x = 10.0, .y = 60.0}];
+        [stationaryLabel setPosition:(CGPoint){.x = 60.0, .y = 60.0}];
         [stationaryLabel setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeLeft];
         [spriteForStaticGeometry addChild:stationaryLabel];
 
@@ -172,11 +181,11 @@ typedef NS_ENUM(NSInteger, IIMySceneZPosition)
     CGPoint scrollingLowerLeft = [self.spriteForScrollingGeometry convertPoint:(CGPoint){0,0} toNode:self.spriteToHostHorizontalAndVerticalScrolling];
 
     CGPoint horizontalScrollingPosition = [self.spriteForHorizontalScrolling position];
-    horizontalScrollingPosition.x = scrollingLowerLeft.x;
+    horizontalScrollingPosition.y = scrollingLowerLeft.y;
     [self.spriteForHorizontalScrolling setPosition:horizontalScrollingPosition];
 
     CGPoint verticalScrollingPosition = [self.spriteForVerticalScrolling position];
-    verticalScrollingPosition.y = scrollingLowerLeft.y;
+    verticalScrollingPosition.x = scrollingLowerLeft.x;
     [self.spriteForVerticalScrolling setPosition:verticalScrollingPosition];
 }
 
