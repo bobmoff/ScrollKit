@@ -65,12 +65,14 @@ typedef NS_ENUM(NSInteger, IIMySceneZPosition)
         upAndDownSize.width = 30;
         SKSpriteNode *spriteForVerticalScrolling = [SKSpriteNode spriteNodeWithColor:[SKColor clearColor] size:upAndDownSize];
         [spriteForVerticalScrolling setAnchorPoint:(CGPoint){0,0}];
+        [spriteForVerticalScrolling setPosition:(CGPoint){0,30}];
         [spriteToHostHorizontalAndVerticalScrolling addChild:spriteForVerticalScrolling];
 
         CGSize leftToRightSize = size;
         leftToRightSize.height = 30;
         SKSpriteNode *spriteForHorizontalScrolling = [SKSpriteNode spriteNodeWithColor:[SKColor clearColor] size:leftToRightSize];
         [spriteForHorizontalScrolling setAnchorPoint:(CGPoint){0,0}];
+        [spriteForHorizontalScrolling setPosition:(CGPoint){10,0}];
         [spriteToHostHorizontalAndVerticalScrolling addChild:spriteForHorizontalScrolling];
 
         //Test sprites for constrained Scrolling
@@ -80,25 +82,24 @@ typedef NS_ENUM(NSInteger, IIMySceneZPosition)
         {
             NSString *labelText = [NSString stringWithFormat:@"%5.0f", labelPosition];
 
-            SKLabelNode *horizontallyScrollingLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
-            [horizontallyScrollingLabel setText:labelText];
-            [horizontallyScrollingLabel setFontSize:14.0];
-            [horizontallyScrollingLabel setFontColor:[SKColor lightGrayColor]];
-            [horizontallyScrollingLabel setPosition:(CGPoint){.x = 10.0, .y = labelPosition}];
-            [horizontallyScrollingLabel setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeLeft];
-            [spriteForHorizontalScrolling addChild:horizontallyScrollingLabel];
+            SKLabelNode *scrollingLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+            [scrollingLabel setText:labelText];
+            [scrollingLabel setFontSize:14.0];
+            [scrollingLabel setFontColor:[SKColor darkGrayColor]];
+            [scrollingLabel setPosition:(CGPoint){.x = 0.0, .y = labelPosition}];
+            [scrollingLabel setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeLeft];
+            [spriteForHorizontalScrolling addChild:scrollingLabel];
 
-            SKLabelNode *verticallyScrollingLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
-            [verticallyScrollingLabel setText:labelText];
-            [verticallyScrollingLabel setFontSize:14.0];
-            [verticallyScrollingLabel setFontColor:[SKColor lightGrayColor]];
-            [verticallyScrollingLabel setPosition:(CGPoint){.x = labelPosition, .y = 10.0}];
-            [verticallyScrollingLabel setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeLeft];
-            [verticallyScrollingLabel setZPosition:kIIMySceneZPositionVerticalAndHorizontalScrolling];
-            [spriteForVerticalScrolling addChild:verticallyScrollingLabel];
+            scrollingLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+            [scrollingLabel setText:labelText];
+            [scrollingLabel setFontSize:14.0];
+            [scrollingLabel setFontColor:[SKColor darkGrayColor]];
+            [scrollingLabel setPosition:(CGPoint){.x = labelPosition, .y = 0.0}];
+            [scrollingLabel setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeLeft];
+            [scrollingLabel setZPosition:kIIMySceneZPositionVerticalAndHorizontalScrolling];
+            [spriteForVerticalScrolling addChild:scrollingLabel];
             labelPosition += stepSize;
         }
-
 
         //Test sprites for scrolling and zooming
         SKSpriteNode *greenTestSprite = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor]
@@ -159,16 +160,7 @@ typedef NS_ENUM(NSInteger, IIMySceneZPosition)
         [self.spriteToScroll setSize:contentSize];
         [self.spriteForScrollingGeometry setSize:contentSize];
         [self.spriteForScrollingGeometry setPosition:(CGPoint){0, -contentSize.height}];
-
-        CGSize verticalSpriteSize = [self.spriteForVerticalScrolling size];
-        verticalSpriteSize.height = contentSize.height;
-        [self.spriteForVerticalScrolling setSize:verticalSpriteSize];
-
-        CGSize horizontalSpriteSize = [self.spriteForHorizontalScrolling size];
-        horizontalSpriteSize.width = contentSize.width;
-        [self.spriteForHorizontalScrolling setSize:horizontalSpriteSize];
-
-        [self setContentOffset:self.contentOffset];
+        [self updateConstrainedScrollerSize];
     }
 }
 
@@ -192,6 +184,41 @@ typedef NS_ENUM(NSInteger, IIMySceneZPosition)
 -(void)setContentScale:(CGFloat)scale;
 {
     [self.spriteToScroll setScale:scale];
+    [self updateConstrainedScrollerSize];
+}
+
+-(void)updateConstrainedScrollerSize
+{
+
+    CGSize contentSize = [self contentSize];
+    CGSize verticalSpriteSize = [self.spriteForVerticalScrolling size];
+    verticalSpriteSize.height = contentSize.height;
+    [self.spriteForVerticalScrolling setSize:verticalSpriteSize];
+
+    CGSize horizontalSpriteSize = [self.spriteForHorizontalScrolling size];
+    horizontalSpriteSize.width = contentSize.width;
+    [self.spriteForHorizontalScrolling setSize:horizontalSpriteSize];
+
+    CGFloat xScale = [self.spriteToScroll xScale];
+    CGFloat yScale = [self.spriteToScroll yScale];
+    [self.spriteForVerticalScrolling setYScale:yScale];
+    [self.spriteForVerticalScrolling setXScale:xScale];
+    [self.spriteForHorizontalScrolling setXScale:xScale];
+    [self.spriteForHorizontalScrolling setYScale:yScale];
+    CGFloat xScaleReciprocal = 1.0/xScale;
+    CGFloat yScaleReciprocal = 1/yScale;
+    for (SKNode *node in [self.spriteForVerticalScrolling children])
+    {
+        [node setXScale:xScaleReciprocal];
+        [node setYScale:yScaleReciprocal];
+    }
+    for (SKNode *node in [self.spriteForHorizontalScrolling children])
+    {
+        [node setXScale:xScaleReciprocal];
+        [node setYScale:yScaleReciprocal];
+    }
+
+    [self setContentOffset:self.contentOffset];
 }
 
 @end
