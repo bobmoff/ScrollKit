@@ -17,7 +17,6 @@
 		69255BD1183D5A7D00637E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69255BCF183D5A7D00637E04 /* Main.storyboard */; };
 		69255BD4183D5A7D00637E04 /* IIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BD3183D5A7D00637E04 /* IIViewController.m */; };
 		69255BD7183D5A7D00637E04 /* IIMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BD6183D5A7D00637E04 /* IIMyScene.m */; };
-		69255BD9183D5A7D00637E04 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 69255BD8183D5A7D00637E04 /* Spaceship.png */; };
 		69255BDB183D5A7D00637E04 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69255BDA183D5A7D00637E04 /* Images.xcassets */; };
 		AB0EE6281895CB6800BC6756 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0EE6271895CB6800BC6756 /* Cocoa.framework */; };
 		AB0EE6291895CB6800BC6756 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69255BC1183D5A7D00637E04 /* SpriteKit.framework */; };
@@ -47,7 +46,6 @@
 		69255BD3183D5A7D00637E04 /* IIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IIViewController.m; sourceTree = "<group>"; };
 		69255BD5183D5A7D00637E04 /* IIMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIMyScene.h; sourceTree = "<group>"; };
 		69255BD6183D5A7D00637E04 /* IIMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IIMyScene.m; sourceTree = "<group>"; };
-		69255BD8183D5A7D00637E04 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		69255BDA183D5A7D00637E04 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69255BE1183D5A7D00637E04 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AB0EE6261895CB6800BC6756 /* ScrollKitOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollKitOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +131,6 @@
 				69255BD3183D5A7D00637E04 /* IIViewController.m */,
 				69255BD5183D5A7D00637E04 /* IIMyScene.h */,
 				69255BD6183D5A7D00637E04 /* IIMyScene.m */,
-				69255BD8183D5A7D00637E04 /* Spaceship.png */,
 				69255BDA183D5A7D00637E04 /* Images.xcassets */,
 				69255BC4183D5A7D00637E04 /* Supporting Files */,
 			);
@@ -258,7 +255,6 @@
 			files = (
 				69255BC8183D5A7D00637E04 /* InfoPlist.strings in Resources */,
 				69255BDB183D5A7D00637E04 /* Images.xcassets in Resources */,
-				69255BD9183D5A7D00637E04 /* Spaceship.png in Resources */,
 				69255BD1183D5A7D00637E04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +507,7 @@
 				AB0EE6591895CB6800BC6756 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
