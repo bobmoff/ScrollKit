@@ -17,5 +17,6 @@
 @property(nonatomic) CGPoint contentOffset;
 
 -(void)setContentScale:(CGFloat)scale;
+-(void)setContentOffset:(CGPoint)contentOffset;
 
 @end
