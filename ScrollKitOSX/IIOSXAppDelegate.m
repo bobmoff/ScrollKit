@@ -6,7 +6,7 @@
 //
 
 #import "IIOSXAppDelegate.h"
-#import "IIMyScene.h"
+#import "ScrollKitOSX-Swift.h"
 #import <SpriteKit/SpriteKit.h>
 
 const CGFloat multiplier = 1.5;

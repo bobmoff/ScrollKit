@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42EF17F81B484E7500E5667E /* IIMyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF17F61B484E7500E5667E /* IIMyScene.swift */; };
+		42EF17F91B484E7500E5667E /* IIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF17F71B484E7500E5667E /* IIViewController.swift */; };
+		42EF18011B48546100E5667E /* IIMyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF17F61B484E7500E5667E /* IIMyScene.swift */; };
 		69255BBC183D5A7D00637E04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69255BBB183D5A7D00637E04 /* Foundation.framework */; };
 		69255BBE183D5A7D00637E04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69255BBD183D5A7D00637E04 /* CoreGraphics.framework */; };
 		69255BC0183D5A7D00637E04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69255BBF183D5A7D00637E04 /* UIKit.framework */; };
@@ -15,8 +18,6 @@
 		69255BCA183D5A7D00637E04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BC9183D5A7D00637E04 /* main.m */; };
 		69255BCE183D5A7D00637E04 /* IIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BCD183D5A7D00637E04 /* IIAppDelegate.m */; };
 		69255BD1183D5A7D00637E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69255BCF183D5A7D00637E04 /* Main.storyboard */; };
-		69255BD4183D5A7D00637E04 /* IIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BD3183D5A7D00637E04 /* IIViewController.m */; };
-		69255BD7183D5A7D00637E04 /* IIMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BD6183D5A7D00637E04 /* IIMyScene.m */; };
 		69255BDB183D5A7D00637E04 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69255BDA183D5A7D00637E04 /* Images.xcassets */; };
 		AB0EE6281895CB6800BC6756 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0EE6271895CB6800BC6756 /* Cocoa.framework */; };
 		AB0EE6291895CB6800BC6756 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69255BC1183D5A7D00637E04 /* SpriteKit.framework */; };
@@ -26,10 +27,14 @@
 		AB0EE63B1895CB6800BC6756 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0EE63A1895CB6800BC6756 /* MainMenu.xib */; };
 		AB0EE6401895CB6800BC6756 /* IIOSXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0EE63F1895CB6800BC6756 /* IIOSXAppDelegate.m */; };
 		AB0EE6451895CB6800BC6756 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0EE6441895CB6800BC6756 /* Images.xcassets */; };
-		AB0EE65D1895CCC800BC6756 /* IIMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 69255BD6183D5A7D00637E04 /* IIMyScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42EF17F51B484E7500E5667E /* ScrollKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScrollKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		42EF17F61B484E7500E5667E /* IIMyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IIMyScene.swift; sourceTree = "<group>"; };
+		42EF17F71B484E7500E5667E /* IIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IIViewController.swift; sourceTree = "<group>"; };
+		42EF17FD1B4852C500E5667E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		42EF17FF1B4852E500E5667E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		69255BB8183D5A7D00637E04 /* ScrollKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69255BBB183D5A7D00637E04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69255BBD183D5A7D00637E04 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -42,10 +47,6 @@
 		69255BCC183D5A7D00637E04 /* IIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIAppDelegate.h; sourceTree = "<group>"; };
 		69255BCD183D5A7D00637E04 /* IIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IIAppDelegate.m; sourceTree = "<group>"; };
 		69255BD0183D5A7D00637E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		69255BD2183D5A7D00637E04 /* IIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIViewController.h; sourceTree = "<group>"; };
-		69255BD3183D5A7D00637E04 /* IIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IIViewController.m; sourceTree = "<group>"; };
-		69255BD5183D5A7D00637E04 /* IIMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIMyScene.h; sourceTree = "<group>"; };
-		69255BD6183D5A7D00637E04 /* IIMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IIMyScene.m; sourceTree = "<group>"; };
 		69255BDA183D5A7D00637E04 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69255BE1183D5A7D00637E04 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AB0EE6261895CB6800BC6756 /* ScrollKitOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollKitOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +111,8 @@
 		69255BBA183D5A7D00637E04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42EF17FF1B4852E500E5667E /* AppKit.framework */,
+				42EF17FD1B4852C500E5667E /* CoreGraphics.framework */,
 				69255BBB183D5A7D00637E04 /* Foundation.framework */,
 				69255BBD183D5A7D00637E04 /* CoreGraphics.framework */,
 				69255BBF183D5A7D00637E04 /* UIKit.framework */,
@@ -126,13 +129,12 @@
 			children = (
 				69255BCC183D5A7D00637E04 /* IIAppDelegate.h */,
 				69255BCD183D5A7D00637E04 /* IIAppDelegate.m */,
+				42EF17F61B484E7500E5667E /* IIMyScene.swift */,
+				42EF17F71B484E7500E5667E /* IIViewController.swift */,
 				69255BCF183D5A7D00637E04 /* Main.storyboard */,
-				69255BD2183D5A7D00637E04 /* IIViewController.h */,
-				69255BD3183D5A7D00637E04 /* IIViewController.m */,
-				69255BD5183D5A7D00637E04 /* IIMyScene.h */,
-				69255BD6183D5A7D00637E04 /* IIMyScene.m */,
 				69255BDA183D5A7D00637E04 /* Images.xcassets */,
 				69255BC4183D5A7D00637E04 /* Supporting Files */,
+				42EF17F51B484E7500E5667E /* ScrollKit-Bridging-Header.h */,
 			);
 			path = ScrollKit;
 			sourceTree = "<group>";
@@ -226,7 +228,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = II;
-				LastUpgradeCheck = 0500;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = IMGNRY;
 			};
 			buildConfigurationList = 69255BB3183D5A7D00637E04 /* Build configuration list for PBXProject "ScrollKit" */;
@@ -277,10 +280,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69255BD7183D5A7D00637E04 /* IIMyScene.m in Sources */,
+				42EF17F81B484E7500E5667E /* IIMyScene.swift in Sources */,
 				69255BCE183D5A7D00637E04 /* IIAppDelegate.m in Sources */,
+				42EF17F91B484E7500E5667E /* IIViewController.swift in Sources */,
 				69255BCA183D5A7D00637E04 /* main.m in Sources */,
-				69255BD4183D5A7D00637E04 /* IIViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB0EE65D1895CCC800BC6756 /* IIMyScene.m in Sources */,
+				42EF18011B48546100E5667E /* IIMyScene.swift in Sources */,
 				AB0EE6401895CB6800BC6756 /* IIOSXAppDelegate.m in Sources */,
 				AB0EE6351895CB6800BC6756 /* main.m in Sources */,
 			);
@@ -336,7 +339,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -351,6 +353,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -375,7 +378,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -409,12 +411,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScrollKit/ScrollKit-Prefix.pch";
 				INFOPLIST_FILE = "ScrollKit/ScrollKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.imgnry.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ScrollKit/ScrollKit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -425,12 +432,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScrollKit/ScrollKit-Prefix.pch";
 				INFOPLIST_FILE = "ScrollKit/ScrollKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.imgnry.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ScrollKit/ScrollKit-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -453,7 +464,9 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ScrollKitOSX/ScrollKitOSX-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.enharmonic.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -475,7 +488,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScrollKitOSX/ScrollKitOSX-Prefix.pch";
 				INFOPLIST_FILE = "ScrollKitOSX/ScrollKitOSX-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.enharmonic.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
