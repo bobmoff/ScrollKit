@@ -121,12 +121,12 @@ const CGFloat multiplier = 1.5;
 	NSPoint contentOffset = [self.scrollView documentVisibleRect].origin;
 	NSSize contentSize = [[self.scrollView contentView] bounds].size;
 	CGFloat scrollAreaHeight = self.scene.contentSize.height - contentSize.height;
-	CGFloat yUIKit = contentOffset.y;
+	CGFloat yCocoa = contentOffset.y;
 	
 	// Convert from Cocoa coordinates to SpriteKit coordinates
 	// Cocoa has 0,0 in the top-left corner
 	// SpriteKit has 0,0 in the bottom-left corner
-	CGFloat ySpriteKit = scrollAreaHeight - yUIKit;
+	CGFloat ySpriteKit = scrollAreaHeight - yCocoa;
 	CGPoint contentOffsetSpriteKit = CGPointMake(contentOffset.x, ySpriteKit);
 	[self.scene setContentOffset:contentOffsetSpriteKit];
 }
