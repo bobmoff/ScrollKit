@@ -118,16 +118,17 @@ const CGFloat multiplier = 1.5;
 
 -(void)_scrollViewDidScroll:(id)changedContentView
 {
-    // get the origin of the document view of the scroll view that
-    // we're watching. Since we're using a subclass that isFlipped
-    // we can just use its origin as the content offset. Our SKScene
-    // subclass is designed for upper-left origin as far as content
-    // offset is concerned so it works with UIScrollView in iOS.
-    // Since the origin is normally lower-left on OS X we need a flipped
-    // view.
-    CGRect documentVisibleRect = [changedContentView documentVisibleRect];
-    CGPoint changedBoundsOrigin = documentVisibleRect.origin;
-    [self.scene setContentOffset:changedBoundsOrigin];
+	NSPoint contentOffset = [self.scrollView documentVisibleRect].origin;
+	NSSize contentSize = [[self.scrollView contentView] bounds].size;
+	CGFloat scrollAreaHeight = self.scene.contentSize.height - contentSize.height;
+	CGFloat yUIKit = contentOffset.y;
+	
+	// Convert from Cocoa coordinates to SpriteKit coordinates
+	// Cocoa has 0,0 in the top-left corner
+	// SpriteKit has 0,0 in the bottom-left corner
+	CGFloat ySpriteKit = scrollAreaHeight - yUIKit;
+	CGPoint contentOffsetSpriteKit = CGPointMake(contentOffset.x, ySpriteKit);
+	[self.scene setContentOffset:contentOffsetSpriteKit];
 }
 
 -(void)scrollViewDidScroll:(NSNotification *)notification
