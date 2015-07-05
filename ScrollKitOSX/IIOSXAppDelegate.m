@@ -104,6 +104,8 @@ const CGFloat multiplier = 1.5;
                                              selector:@selector(scrollViewDidScroll:)
                                                  name:NSViewBoundsDidChangeNotification
                                                object:scrollView.contentView];
+
+	[self _scrollViewDidScroll:self.scrollView];
 }
 
 -(void)windowDidResize:(NSNotification *)notification

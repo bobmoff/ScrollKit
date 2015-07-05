@@ -57,6 +57,9 @@ var ViewTransformChangedObservationContext = KVOContext()
 		super.viewWillLayoutSubviews()
 		scrollView?.frame = view.bounds
 		scene?.size = view.bounds.size
+		if let scrollView = scrollView {
+			adjustContent(scrollView)
+		}
 	}
 	
 	func adjustContent(scrollView: UIScrollView) {
