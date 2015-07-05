@@ -20,11 +20,11 @@ public class IIMyScene: SKScene {
 			return innerContentSize
 		}
 		set {
-			if (!CGSizeEqualToSize(newValue, innerContentSize)) {
+			if !CGSizeEqualToSize(newValue, innerContentSize) {
 				innerContentSize = newValue
 				self.spriteToScroll?.size = newValue
 				self.spriteForScrollingGeometry?.size = newValue
-				self.spriteForScrollingGeometry?.position = CGPointMake(0, -newValue.height)
+				self.spriteForScrollingGeometry?.position = CGPointZero
 				updateConstrainedScrollerSize()
 			}
 		}
@@ -36,13 +36,15 @@ public class IIMyScene: SKScene {
 			return innerContentOffset
 		}
 		set {
-			innerContentOffset = newValue
-			contentOffsetReload()
+			if !CGPointEqualToPoint(newValue, innerContentOffset) {
+				innerContentOffset = newValue
+				contentOffsetReload()
+			}
 		}
 	}
 	
 	func contentOffsetReload() {
-		self.spriteToScroll?.position = CGPointMake(-innerContentOffset.x, innerContentOffset.y)
+		self.spriteToScroll?.position = CGPointMake(-innerContentOffset.x, -innerContentOffset.y)
 		
 		if let spriteForScrollingGeometry = self.spriteForScrollingGeometry,
 			spriteToHostHorizontalAndVerticalScrolling = self.spriteToHostHorizontalAndVerticalScrolling,
@@ -67,7 +69,7 @@ public class IIMyScene: SKScene {
 	//kIIMySceneZPositionStatic
 	weak var spriteForStaticGeometry: SKSpriteNode?
 	
-	//kIIMySceneZPositionVerticalAndHorizontalScrolling
+	// ZPosition VerticalAndHorizontalScrolling
 	weak var spriteToHostHorizontalAndVerticalScrolling: SKSpriteNode?
 	weak var spriteForHorizontalScrolling: SKSpriteNode?
 	weak var spriteForVerticalScrolling: SKSpriteNode?
@@ -75,33 +77,29 @@ public class IIMyScene: SKScene {
 	
 	override init(size: CGSize) {
 		super.init(size: size)
-
-		//Anchor point is {0,1} <-- Don't change that or scrolling will get messed-up
-		//If you want to use some other anchor point, add a subnode with a more appropriate
-		//anchor point and offset it appropriately; see the spriteForScrollingGeometry and
-		//spriteForStaticGeometry private properties in initWithSize: for how to do this.
-		self.anchorPoint = CGPointMake(0, 1)
+		self.anchorPoint = CGPointZero
 
 		let spriteToScroll = SKSpriteNode(color: SKColor.clearColor(), size: size)
-		spriteToScroll.anchorPoint = CGPointMake(0, 1)
+		spriteToScroll.anchorPoint = CGPointZero
 		spriteToScroll.zPosition = CGFloat(IIMySceneZPosition.Scrolling.rawValue)
 		self.addChild(spriteToScroll)
 		
 		//Overlay sprite to make anchor point 0,0 (lower left, default for SK)
 		let spriteForScrollingGeometry = SKSpriteNode(color: SKColor.clearColor(), size: size)
 		spriteForScrollingGeometry.anchorPoint = CGPointZero
-		spriteForScrollingGeometry.position = CGPointMake(0, -size.height)
+		spriteForScrollingGeometry.position = CGPointZero
+		spriteForScrollingGeometry.zPosition = CGFloat(IIMySceneZPosition.Scrolling.rawValue)
 		spriteToScroll.addChild(spriteForScrollingGeometry)
 		
 		let spriteForStaticGeometry = SKSpriteNode(color: SKColor.clearColor(), size: size)
 		spriteForStaticGeometry.anchorPoint = CGPointZero
-		spriteForStaticGeometry.position = CGPointMake(0, -size.height)
+		spriteForStaticGeometry.position = CGPointZero
 		spriteForStaticGeometry.zPosition = CGFloat(IIMySceneZPosition.Static.rawValue)
 		self.addChild(spriteForStaticGeometry)
 		
 		let spriteToHostHorizontalAndVerticalScrolling = SKSpriteNode(color: SKColor.clearColor(), size: size)
 		spriteToHostHorizontalAndVerticalScrolling.anchorPoint = CGPointZero
-		spriteToHostHorizontalAndVerticalScrolling.position = CGPointMake(0, -size.height)
+		spriteToHostHorizontalAndVerticalScrolling.position = CGPointZero
 		spriteToHostHorizontalAndVerticalScrolling.zPosition = CGFloat(IIMySceneZPosition.VerticalAndHorizontalScrolling.rawValue)
 		self.addChild(spriteToHostHorizontalAndVerticalScrolling)
 
@@ -139,7 +137,6 @@ public class IIMyScene: SKScene {
 			scrollingLabel.fontColor = SKColor.darkGrayColor()
 			scrollingLabel.position = CGPointMake(labelPosition, 0)
 			scrollingLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
-			scrollingLabel.zPosition = CGFloat(IIMySceneZPosition.VerticalAndHorizontalScrolling.rawValue)
 			spriteForVerticalScrolling.addChild(scrollingLabel)
 			
 			labelPosition += stepSize
@@ -185,13 +182,12 @@ public class IIMyScene: SKScene {
 	override public func didChangeSize(oldSize: CGSize) {
 		let size = self.size
 		
-		let lowerLeft = CGPointMake(0, -size.height)
 		
 		self.spriteForStaticGeometry?.size = size
-		self.spriteForStaticGeometry?.position = lowerLeft
+		self.spriteForStaticGeometry?.position = CGPointZero
 		
 		self.spriteToHostHorizontalAndVerticalScrolling?.size = size
-		self.spriteToHostHorizontalAndVerticalScrolling?.position = lowerLeft
+		self.spriteToHostHorizontalAndVerticalScrolling?.position = CGPointZero
 	}
 	
 	func setContentScale(scale: CGFloat) {

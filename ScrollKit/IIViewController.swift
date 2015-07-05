@@ -13,6 +13,7 @@ var ViewTransformChangedObservationContext = KVOContext()
 
 	weak var scene: IIMyScene?
 	weak var clearContentView: UIView?
+	weak var scrollView: UIScrollView?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -35,12 +36,13 @@ var ViewTransformChangedObservationContext = KVOContext()
 		contentSize.height *= 1.5
 		scene.contentSize = contentSize
 		
-		let scrollView = UIScrollView(frame: skView.frame)
+		let scrollView = UIScrollView(frame: CGRectZero)
 		scrollView.contentSize = contentSize
 		scrollView.delegate = self
 		scrollView.minimumZoomScale = 1
 		scrollView.maximumZoomScale = 3
 		scrollView.indicatorStyle = .White
+		self.scrollView = scrollView
 		
 		let clearContentView = UIView(frame: CGRectMake(0, 0, contentSize.width, contentSize.height))
 		clearContentView.backgroundColor = UIColor.clearColor()
@@ -51,11 +53,26 @@ var ViewTransformChangedObservationContext = KVOContext()
 		skView.addSubview(scrollView)
 	}
 	
+	override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+		scrollView?.frame = view.bounds
+		scene?.size = view.bounds.size
+	}
+	
 	func adjustContent(scrollView: UIScrollView) {
 		let zoomScale = scrollView.zoomScale
 		scene?.setContentScale(zoomScale)
 		let contentOffset = scrollView.contentOffset
-		scene?.contentOffset = contentOffset
+		let contentSize = scrollView.contentSize
+		let scrollAreaHeight: CGFloat = contentSize.height - scrollView.bounds.height
+		let yUIKit: CGFloat = contentOffset.y
+		
+		// Convert from UIKit coordinates to SpriteKit coordinates
+		// UIKit has 0,0 in the top-left corner
+		// SpriteKit has 0,0 in the bottom-left corner
+		let ySpriteKit = scrollAreaHeight - yUIKit
+		let contentOffsetSpriteKit = CGPointMake(contentOffset.x, ySpriteKit)
+		scene?.contentOffset = contentOffsetSpriteKit
 	}
 	
 	func scrollViewDidScroll(scrollView: UIScrollView) {
