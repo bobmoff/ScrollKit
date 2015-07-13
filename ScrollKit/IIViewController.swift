@@ -97,7 +97,7 @@ var ViewTransformChangedObservationContext = KVOContext()
 
 	// MARK: KVO
 	
-	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [NSObject : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
 		if context == &ViewTransformChangedObservationContext {
 			if let view = object as? UIView, scrollView = view.superview as? UIScrollView {
 				scrollViewDidTransform(scrollView)
