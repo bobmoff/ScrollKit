@@ -4,6 +4,7 @@
 // Created by Fille Åström
 //
 
+import Foundation
 import SpriteKit
 
 enum IIMySceneZPosition: Int {
@@ -14,29 +15,29 @@ enum IIMySceneZPosition: Int {
 
 public class IIMyScene: SKScene {
 
-	var innerContentSize: CGSize = CGSizeZero
+	var innerContentSize: CGSize = CGSize.zero
 	public var contentSize: CGSize {
 		get {
 			return innerContentSize
 		}
 		set {
-			if !CGSizeEqualToSize(newValue, innerContentSize) {
+			if !newValue.equalTo(innerContentSize) {
 				innerContentSize = newValue
 				self.spriteToScroll?.size = newValue
 				self.spriteForScrollingGeometry?.size = newValue
-				self.spriteForScrollingGeometry?.position = CGPointZero
+				self.spriteForScrollingGeometry?.position = CGPoint.zero
 				updateConstrainedScrollerSize()
 			}
 		}
 	}
 	
-	var innerContentOffset: CGPoint = CGPointZero
+	var innerContentOffset: CGPoint = CGPoint.zero
 	public var contentOffset: CGPoint {
 		get {
 			return innerContentOffset
 		}
 		set {
-			if !CGPointEqualToPoint(newValue, innerContentOffset) {
+			if !newValue.equalTo(innerContentOffset) {
 				innerContentOffset = newValue
 				contentOffsetReload()
 			}
@@ -44,13 +45,13 @@ public class IIMyScene: SKScene {
 	}
 	
 	func contentOffsetReload() {
-		self.spriteToScroll?.position = CGPointMake(-innerContentOffset.x, -innerContentOffset.y)
+        self.spriteToScroll?.position = CGPoint(x: -innerContentOffset.x, y: -innerContentOffset.y)
 		
 		if let spriteForScrollingGeometry = self.spriteForScrollingGeometry,
-			spriteToHostHorizontalAndVerticalScrolling = self.spriteToHostHorizontalAndVerticalScrolling,
-			spriteForHorizontalScrolling = self.spriteForHorizontalScrolling,
-			spriteForVerticalScrolling = self.spriteForVerticalScrolling {
-				let scrollingLowerLeft = spriteForScrollingGeometry.convertPoint(CGPointZero, toNode: spriteToHostHorizontalAndVerticalScrolling)
+			let spriteToHostHorizontalAndVerticalScrolling = self.spriteToHostHorizontalAndVerticalScrolling,
+			let spriteForHorizontalScrolling = self.spriteForHorizontalScrolling,
+			let spriteForVerticalScrolling = self.spriteForVerticalScrolling {
+				let scrollingLowerLeft = spriteForScrollingGeometry.convert(CGPoint.zero, to: spriteToHostHorizontalAndVerticalScrolling)
 				
 				var horizontalScrollingPosition = spriteForHorizontalScrolling.position
 				horizontalScrollingPosition.y = scrollingLowerLeft.y
@@ -77,44 +78,44 @@ public class IIMyScene: SKScene {
 	
 	override init(size: CGSize) {
 		super.init(size: size)
-		self.anchorPoint = CGPointZero
+		self.anchorPoint = CGPoint.zero
 
-		let spriteToScroll = SKSpriteNode(color: SKColor.clearColor(), size: size)
-		spriteToScroll.anchorPoint = CGPointZero
+		let spriteToScroll = SKSpriteNode(color: SKColor.clear, size: size)
+		spriteToScroll.anchorPoint = CGPoint.zero
 		spriteToScroll.zPosition = CGFloat(IIMySceneZPosition.Scrolling.rawValue)
 		self.addChild(spriteToScroll)
 		
 		//Overlay sprite to make anchor point 0,0 (lower left, default for SK)
-		let spriteForScrollingGeometry = SKSpriteNode(color: SKColor.clearColor(), size: size)
-		spriteForScrollingGeometry.anchorPoint = CGPointZero
-		spriteForScrollingGeometry.position = CGPointZero
+		let spriteForScrollingGeometry = SKSpriteNode(color: SKColor.clear, size: size)
+		spriteForScrollingGeometry.anchorPoint = CGPoint.zero
+		spriteForScrollingGeometry.position = CGPoint.zero
 		spriteForScrollingGeometry.zPosition = CGFloat(IIMySceneZPosition.Scrolling.rawValue)
 		spriteToScroll.addChild(spriteForScrollingGeometry)
 		
-		let spriteForStaticGeometry = SKSpriteNode(color: SKColor.clearColor(), size: size)
-		spriteForStaticGeometry.anchorPoint = CGPointZero
-		spriteForStaticGeometry.position = CGPointZero
+		let spriteForStaticGeometry = SKSpriteNode(color: SKColor.clear, size: size)
+		spriteForStaticGeometry.anchorPoint = CGPoint.zero
+		spriteForStaticGeometry.position = CGPoint.zero
 		spriteForStaticGeometry.zPosition = CGFloat(IIMySceneZPosition.Static.rawValue)
 		self.addChild(spriteForStaticGeometry)
 		
-		let spriteToHostHorizontalAndVerticalScrolling = SKSpriteNode(color: SKColor.clearColor(), size: size)
-		spriteToHostHorizontalAndVerticalScrolling.anchorPoint = CGPointZero
-		spriteToHostHorizontalAndVerticalScrolling.position = CGPointZero
+		let spriteToHostHorizontalAndVerticalScrolling = SKSpriteNode(color: SKColor.clear, size: size)
+		spriteToHostHorizontalAndVerticalScrolling.anchorPoint = CGPoint.zero
+		spriteToHostHorizontalAndVerticalScrolling.position = CGPoint.zero
 		spriteToHostHorizontalAndVerticalScrolling.zPosition = CGFloat(IIMySceneZPosition.VerticalAndHorizontalScrolling.rawValue)
 		self.addChild(spriteToHostHorizontalAndVerticalScrolling)
 
 		var upAndDownSize = size
 		upAndDownSize.width = 30
-		let spriteForVerticalScrolling = SKSpriteNode(color: SKColor.clearColor(), size: upAndDownSize)
-		spriteForVerticalScrolling.anchorPoint = CGPointZero
-		spriteForVerticalScrolling.position = CGPointMake(0, 30)
+		let spriteForVerticalScrolling = SKSpriteNode(color: SKColor.clear, size: upAndDownSize)
+		spriteForVerticalScrolling.anchorPoint = CGPoint.zero
+        spriteForVerticalScrolling.position = CGPoint(x: 0, y: 30)
 		spriteToHostHorizontalAndVerticalScrolling.addChild(spriteForVerticalScrolling)
 
 		var leftToRightSize = size
 		leftToRightSize.height = 30
-		let spriteForHorizontalScrolling = SKSpriteNode(color: SKColor.clearColor(), size: leftToRightSize)
-		spriteForHorizontalScrolling.anchorPoint = CGPointZero
-		spriteForHorizontalScrolling.position = CGPointMake(10, 0)
+		let spriteForHorizontalScrolling = SKSpriteNode(color: SKColor.clear, size: leftToRightSize)
+		spriteForHorizontalScrolling.anchorPoint = CGPoint.zero
+        spriteForHorizontalScrolling.position = CGPoint(x: 10, y: 0)
 		spriteToHostHorizontalAndVerticalScrolling.addChild(spriteForHorizontalScrolling)
 		
 		//Test sprites for constrained Scrolling
@@ -126,41 +127,41 @@ public class IIMyScene: SKScene {
 			let hscrollingLabel = SKLabelNode(fontNamed: "HelveticaNeue")
 			hscrollingLabel.text = labelText
 			hscrollingLabel.fontSize = 14
-			hscrollingLabel.fontColor = SKColor.darkGrayColor()
-			hscrollingLabel.position = CGPointMake(0, labelPosition)
-			hscrollingLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+			hscrollingLabel.fontColor = SKColor.darkGray
+            hscrollingLabel.position = CGPoint(x: 0, y: labelPosition)
+			hscrollingLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
 			spriteForHorizontalScrolling.addChild(hscrollingLabel)
 
 			let scrollingLabel = SKLabelNode(fontNamed: "HelveticaNeue")
 			scrollingLabel.text = labelText
 			scrollingLabel.fontSize = 14
-			scrollingLabel.fontColor = SKColor.darkGrayColor()
-			scrollingLabel.position = CGPointMake(labelPosition, 0)
-			scrollingLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+			scrollingLabel.fontColor = SKColor.darkGray
+            scrollingLabel.position = CGPoint(x: labelPosition, y: 0)
+			scrollingLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
 			spriteForVerticalScrolling.addChild(scrollingLabel)
 			
 			labelPosition += stepSize
 		}
 
 		//Test sprites for scrolling and zooming
-		let greenTestSprite = SKSpriteNode(color: SKColor.greenColor(), size: CGSizeMake(size.width, size.height * 0.25))
+        let greenTestSprite = SKSpriteNode(color: SKColor.green, size: CGSize(width: size.width, height: size.height * 0.25))
 		greenTestSprite.name = "greenTestSprite"
-		greenTestSprite.anchorPoint = CGPointZero
+		greenTestSprite.anchorPoint = CGPoint.zero
 		spriteForScrollingGeometry.addChild(greenTestSprite)
 		
-		let blueTestSprite = SKSpriteNode(color: SKColor.blueColor(), size: CGSizeMake(size.width * 0.25, size.height * 0.25))
+        let blueTestSprite = SKSpriteNode(color: SKColor.blue, size: CGSize(width: size.width * 0.25, height: size.height * 0.25))
 		blueTestSprite.name = "blueTestSprite"
-		blueTestSprite.anchorPoint = CGPointZero
-		blueTestSprite.position = CGPointMake(size.width * 0.25, size.height * 0.65)
+		blueTestSprite.anchorPoint = CGPoint.zero
+        blueTestSprite.position = CGPoint(x: size.width * 0.25, y: size.height * 0.65)
 		spriteForScrollingGeometry.addChild(blueTestSprite)
 		
 		//Test sprites for stationary sprites
 		let stationaryLabel = SKLabelNode(fontNamed: "HelveticaNeue")
 		stationaryLabel.text = "I'm not gonna move, nope, nope."
 		stationaryLabel.fontSize = 14
-		stationaryLabel.fontColor = SKColor.darkGrayColor()
-		stationaryLabel.position = CGPointMake(60, 80)
-		stationaryLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+		stationaryLabel.fontColor = SKColor.darkGray
+        stationaryLabel.position = CGPoint(x: 60, y: 80)
+		stationaryLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
 		spriteForStaticGeometry.addChild(stationaryLabel)
 		
 		
@@ -172,22 +173,22 @@ public class IIMyScene: SKScene {
 		self.spriteToHostHorizontalAndVerticalScrolling = spriteToHostHorizontalAndVerticalScrolling
 		self.spriteForVerticalScrolling = spriteForVerticalScrolling
 		self.spriteForHorizontalScrolling = spriteForHorizontalScrolling
-		self.contentOffset = CGPointZero
+		self.contentOffset = CGPoint.zero
 	}
 
 	required public init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
 	}
 	
-	override public func didChangeSize(oldSize: CGSize) {
+	override public func didChangeSize(_ oldSize: CGSize) {
 		let size = self.size
 		
 		
 		self.spriteForStaticGeometry?.size = size
-		self.spriteForStaticGeometry?.position = CGPointZero
+		self.spriteForStaticGeometry?.position = CGPoint.zero
 		
 		self.spriteToHostHorizontalAndVerticalScrolling?.size = size
-		self.spriteToHostHorizontalAndVerticalScrolling?.position = CGPointZero
+		self.spriteToHostHorizontalAndVerticalScrolling?.position = CGPoint.zero
 	}
 	
 	func setContentScale(scale: CGFloat) {
@@ -198,11 +199,11 @@ public class IIMyScene: SKScene {
 	func updateConstrainedScrollerSize() {
 		let contentSize: CGSize = self.contentSize
 		
-		var verticalSpriteSize: CGSize = self.spriteForVerticalScrolling?.size ?? CGSizeZero
+		var verticalSpriteSize: CGSize = self.spriteForVerticalScrolling?.size ?? CGSize.zero
 		verticalSpriteSize.height = contentSize.height
 		spriteForVerticalScrolling?.size = verticalSpriteSize
 		
-		var horizontalSpriteSize = self.spriteForHorizontalScrolling?.size ?? CGSizeZero
+		var horizontalSpriteSize = self.spriteForHorizontalScrolling?.size ?? CGSize.zero
 		horizontalSpriteSize.width = contentSize.width
 		spriteForHorizontalScrolling?.size = horizontalSpriteSize
 		
