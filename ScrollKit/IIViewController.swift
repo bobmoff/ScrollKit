@@ -25,7 +25,7 @@ var ViewTransformChangedObservationContext = KVOContext()
 		
 		// Create and configure the scene.
 		let scene = IIMyScene(size: skView.bounds.size)
-		scene.scaleMode = .Fill
+		scene.scaleMode = .fill
 		
 		// Present the scene.
 		skView.presentScene(scene)
@@ -36,20 +36,20 @@ var ViewTransformChangedObservationContext = KVOContext()
 		contentSize.height *= 1.5
 		scene.contentSize = contentSize
 		
-		let scrollView = UIScrollView(frame: CGRectZero)
+		let scrollView = UIScrollView(frame: CGRect.zero)
 		scrollView.contentSize = contentSize
 		scrollView.delegate = self
 		scrollView.minimumZoomScale = 1
 		scrollView.maximumZoomScale = 3
-		scrollView.indicatorStyle = .White
+		scrollView.indicatorStyle = .white
 		self.scrollView = scrollView
 		
-		let clearContentView = UIView(frame: CGRectMake(0, 0, contentSize.width, contentSize.height))
-		clearContentView.backgroundColor = UIColor.clearColor()
+        let clearContentView = UIView(frame: CGRect(x: 0, y: 0, width: contentSize.width, height: contentSize.height))
+		clearContentView.backgroundColor = UIColor.clear
 		scrollView.addSubview(clearContentView)
 		self.clearContentView = clearContentView
 	
-		clearContentView.addObserver(self, forKeyPath: "transform", options: .New, context: &ViewTransformChangedObservationContext)
+		clearContentView.addObserver(self, forKeyPath: "transform", options: .new, context: &ViewTransformChangedObservationContext)
 		skView.addSubview(scrollView)
 	}
 	
@@ -58,13 +58,13 @@ var ViewTransformChangedObservationContext = KVOContext()
 		scrollView?.frame = view.bounds
 		scene?.size = view.bounds.size
 		if let scrollView = scrollView {
-			adjustContent(scrollView)
+			adjustContent(scrollView: scrollView)
 		}
 	}
 	
 	func adjustContent(scrollView: UIScrollView) {
 		let zoomScale = scrollView.zoomScale
-		scene?.setContentScale(zoomScale)
+		scene?.setContentScale(scale: zoomScale)
 		let contentOffset = scrollView.contentOffset
 		let contentSize = scrollView.contentSize
 		let scrollAreaHeight: CGFloat = contentSize.height - scrollView.bounds.height
@@ -74,12 +74,12 @@ var ViewTransformChangedObservationContext = KVOContext()
 		// UIKit has 0,0 in the top-left corner
 		// SpriteKit has 0,0 in the bottom-left corner
 		let ySpriteKit = scrollAreaHeight - yUIKit
-		let contentOffsetSpriteKit = CGPointMake(contentOffset.x, ySpriteKit)
+        let contentOffsetSpriteKit = CGPoint(x: contentOffset.x, y: ySpriteKit)
 		scene?.contentOffset = contentOffsetSpriteKit
 	}
 	
-	func scrollViewDidScroll(scrollView: UIScrollView) {
-		adjustContent(scrollView)
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        adjustContent(scrollView: scrollView)
 	}
 	
 	func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
@@ -87,24 +87,23 @@ var ViewTransformChangedObservationContext = KVOContext()
 	}
 	
 	func scrollViewDidTransform(scrollView: UIScrollView) {
-		adjustContent(scrollView)
+        adjustContent(scrollView: scrollView)
 	}
 	
 	// scale between minimum and maximum. called after any 'bounce' animations
-	func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
-		adjustContent(scrollView)
+	func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        adjustContent(scrollView: scrollView)
 	}
 
 	// MARK: KVO
-	
-	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 		if context == &ViewTransformChangedObservationContext {
-			if let view = object as? UIView, scrollView = view.superview as? UIScrollView {
-				scrollViewDidTransform(scrollView)
+			if let view = object as? UIView, let scrollView = view.superview as? UIScrollView {
+				scrollViewDidTransform(scrollView: scrollView)
 				return
 			}
 		}
-		super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+        super.observeValue(forKeyPath: keyPath, of: object, change: change as! [NSKeyValueChangeKey : Any]?, context: context)
 	}
 	
 	deinit {
