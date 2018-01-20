@@ -103,7 +103,7 @@ var ViewTransformChangedObservationContext = KVOContext()
 				return
 			}
 		}
-        super.observeValue(forKeyPath: keyPath, of: object, change: change as! [NSKeyValueChangeKey : Any]?, context: context)
+        super.observeValue(forKeyPath: keyPath, of: object, change: change , context: context)
 	}
 	
 	deinit {
